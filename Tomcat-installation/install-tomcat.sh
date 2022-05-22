@@ -12,10 +12,11 @@ sudo yum install java-1.8.0-openjdk-devel -y
 
 
 # dowanload and extract tomcat software
-sudo wget https://dlcdn.apache.org/tomcat/tomcat-9/v9.0.55/bin/apache-tomcat-9.0.55.tar.gz
-sudo tar -xvf apache-tomcat-9.0.55.tar.gz
-sudo rm apache-tomcat-9.0.55.tar.gz
+sudo wget https://dlcdn.apache.org/tomcat/tomcat-9/v9.0.63/bin/apache-tomcat-9.0.63.tar.gz
+sudo tar -xvf apache-tomcat-9.0.63.tar.gz
+sudo rm apache-tomcat-9.0.63.tar.gz
 
+mv apache-tomcat-9.0.63 tomcat9
 sudo chmod 777 -R /opt/tomcat9
 sudo sh /opt/tomcat9/bin/startup.sh
 # create a soft link to start and stop tomcat from anywhere 
@@ -32,7 +33,7 @@ echo "end on tomcat installation"
 find / -name server.xml context.xml
 vim /opt/tomcat9/conf/server.xml
 vi /opt/tomcat9/webapps/manager/META-INF/context.xml
-vi /opt/tomcat9/conf/tomcat-user.xml  # to add user
+vi /opt/tomcat9/conf/tomcat-users.xml  # to add user
 
 	<user username="landmark" password="admin" roles="manager-gui,admin-gui"/>
 	
